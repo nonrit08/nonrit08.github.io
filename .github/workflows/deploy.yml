@@ -34,6 +34,12 @@ jobs:
 
       - name: Build
         run: yarn run build
+      
+      - name: List output directory
+        run: ls -la out/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
