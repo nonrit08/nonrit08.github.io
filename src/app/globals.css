@@ -1,26 +1,52 @@
 @import "tailwindcss";
+@import "../styles/theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * ========================================
+ * TAILWIND THEME MAPPING
+ * ----------------------------------------
+ * แม็ป portfolio variables → Tailwind tokens
+ * ใช้งาน: bg-background, text-primary, bg-card, etc.
+ * ========================================
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Background Colors → bg-* */
+  --color-background: var(--portfolio-bg);
+  --color-background-secondary: var(--portfolio-bg-secondary);
+  --color-card: var(--portfolio-bg-card);
+  --color-card-hover: var(--portfolio-bg-card-hover);
+
+  /* Text Colors → text-* */
+  --color-foreground: var(--portfolio-text);
+  --color-foreground-secondary: var(--portfolio-text-secondary);
+  --color-foreground-muted: var(--portfolio-text-muted);
+
+  /* Primary Colors → bg-primary, text-primary */
+  --color-primary: var(--portfolio-primary);
+  --color-primary-light: var(--portfolio-primary-light);
+  --color-primary-dark: var(--portfolio-primary-dark);
+
+  /* Accent Colors → bg-accent, text-accent */
+  --color-accent: var(--portfolio-accent);
+  --color-accent-light: var(--portfolio-accent-light);
+  --color-accent-dark: var(--portfolio-accent-dark);
+
+  /* Border Colors → border-* */
+  --color-border: var(--portfolio-border);
+  --color-border-hover: var(--portfolio-border-hover);
+
+  /* Gradient Colors → from-*, via-*, to-* */
+  --color-gradient-from: var(--portfolio-gradient-from);
+  --color-gradient-via: var(--portfolio-gradient-via);
+  --color-gradient-to: var(--portfolio-gradient-to);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text-secondary);
   font-family: Arial, Helvetica, sans-serif;
 }

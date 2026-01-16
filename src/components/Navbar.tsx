@@ -15,11 +15,11 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-background/95 backdrop-blur-sm shadow-lg shadow-card/20' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <a href="#hero" className="text-2xl font-bold text-cyan-400">
+          <a href="#hero" className="text-2xl font-bold text-accent">
             Portfolio
           </a>
           <div className="hidden md:flex space-x-8">
@@ -27,7 +27,7 @@ export default function Navbar() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-300 hover:text-cyan-400 transition-colors"
+                className="text-foreground-secondary hover:text-accent transition-colors"
               >
                 {item}
               </a>
