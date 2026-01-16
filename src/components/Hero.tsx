@@ -1,5 +1,9 @@
 'use client'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+
 export default function Hero() {
   return (
     <>
@@ -8,26 +12,72 @@ export default function Hero() {
         id="hero" 
         className="h-[70vh] flex items-center justify-center bg-gradient-to-br from-gradient-from via-gradient-via to-gradient-to"
       >
-        <div className="text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-3">
-            Hi, I'm <span className="text-accent">Your Name</span>
-          </h1>
-          <p className="text-lg md:text-xl text-foreground-secondary mb-6">
-            Full Stack Developer | TypeScript Enthusiast
-          </p>
-          <div className="flex gap-4 justify-center">
-            <a 
-              href="#projects" 
-              className="px-8 py-3 bg-primary text-foreground rounded-full hover:bg-primary-dark transition-all transform hover:scale-105"
-            >
-              View My Work
-            </a>
-            <a 
-              href="#contact" 
-              className="px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-background transition-all"
-            >
-              Contact Me
-            </a>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            
+            {/* Left Side - Avatar & Social Links */}
+            <div className="flex flex-col items-center gap-6">
+              {/* Avatar */}
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-card/50 border-2 border-border flex items-center justify-center text-foreground-muted">
+                <FontAwesomeIcon icon={faUser} className="text-5xl md:text-6xl" />
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex gap-4">
+                <a 
+                  href="https://linkedin.com/in/yourprofile" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 bg-card/50 border border-border rounded-full text-foreground-secondary hover:text-accent hover:border-accent hover:bg-card transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
+                </a>
+                <a 
+                  href="mailto:your@email.com"
+                  className="p-3 bg-card/50 border border-border rounded-full text-foreground-secondary hover:text-accent hover:border-accent hover:bg-card transition-all"
+                  aria-label="Email"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
+                </a>
+                <a 
+                  href="https://github.com/yourusername" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 bg-card/50 border border-border rounded-full text-foreground-secondary hover:text-accent hover:border-accent hover:bg-card transition-all"
+                  aria-label="GitHub"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="text-xl" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Info */}
+            <div className="text-center md:text-left max-w-md">
+              {/* Greeting */}
+              <p className="text-foreground-secondary text-lg mb-2">สวัสดี, ผมชื่อ</p>
+              
+              {/* Name */}
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
+                <span className="text-accent">Your Name</span>
+              </h1>
+              
+              {/* Position */}
+              <p className="text-xl md:text-2xl text-primary-light font-medium mb-4">
+                Web Developer
+              </p>
+              
+              {/* Divider */}
+              <div className="w-16 h-1 bg-accent mx-auto md:mx-0 mb-4 rounded-full"></div>
+              
+              {/* Description */}
+              {/* <p className="text-foreground-secondary leading-relaxed">
+                นักพัฒนาเว็บไซต์ประสบการณ์ <span className="text-accent font-semibold">6 ปี</span> 
+                {' '}มีความเชี่ยวชาญด้าน Frontend และ Backend 
+                พร้อมสร้างสรรค์ผลงานที่ตอบโจทย์ทุกความต้องการ
+              </p> */}
+            </div>
+
           </div>
         </div>
       </section>
