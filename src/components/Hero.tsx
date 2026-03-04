@@ -1,11 +1,30 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import TechStack from './TechStack'
 
+const membershipMessages: Record<'silver' | 'gold', string> = {
+  silver: 'Thank you for being a Silver member. Enjoy your special benefits.',
+  gold: 'Welcome, Gold member! You have full premium access and exclusive perks.',
+}
+
 export default function Hero() {
+  const [membershipStatus, setMembershipStatus] = useState<'silver' | 'gold' | null>(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const status = window.localStorage.getItem('membership-status')
+    if (status === 'silver' || status === 'gold') {
+      setMembershipStatus(status)
+    } else {
+      setMembershipStatus(null)
+    }
+  }, [])
+
   return (
     <>
       {/* ===== SECTION 1: Introduction ===== */}
@@ -70,8 +89,34 @@ export default function Hero() {
               <p className="text-foreground-secondary leading-relaxed">
                 Web developer with 6 years of experience specializing in full-stack development.
               </p>
-            </div>
 
+              {/* Membership messages shown when membership-status matches */}
+              <div className="mt-4 space-y-3">
+                {/* Silver */}
+                <div
+                  className={`px-4 py-3 rounded-lg border text-sm ${
+                    membershipStatus === 'silver'
+                      ? 'bg-emerald-900/40 border-emerald-500/80 text-emerald-100'
+                      : 'hidden'
+                  }`}
+                >
+                  <div>Favorite Hobbies:</div>
+                  <div>Playing games/Looking on a new something interesting</div>
+                </div>
+
+                {/* Gold */}
+                <div
+                  className={`px-4 py-3 rounded-lg border text-sm ${
+                    membershipStatus === 'gold'
+                      ? 'bg-yellow-900/40 border-yellow-400/80 text-yellow-100'
+                      : 'hidden'
+                  }`}
+                >
+                  <div>Current Target in Life:</div>
+                  <div>Build a successful business</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
