@@ -91,31 +91,7 @@ export default function Hero() {
               </p>
 
               {/* Membership messages shown when membership-status matches */}
-              <div className="mt-4 space-y-3">
-                {/* Silver */}
-                <div
-                  className={`px-4 py-3 rounded-lg border text-sm ${
-                    membershipStatus === 'silver'
-                      ? 'bg-emerald-900/40 border-emerald-500/80 text-emerald-100'
-                      : 'hidden'
-                  }`}
-                >
-                  <div>Favorite Hobbies:</div>
-                  <div>Playing games/Looking on a new something interesting</div>
-                </div>
-
-                {/* Gold */}
-                <div
-                  className={`px-4 py-3 rounded-lg border text-sm ${
-                    membershipStatus === 'gold'
-                      ? 'bg-yellow-900/40 border-yellow-400/80 text-yellow-100'
-                      : 'hidden'
-                  }`}
-                >
-                  <div>Current Target in Life:</div>
-                  <div>Build a successful business</div>
-                </div>
-              </div>
+              <div id="extra-content" className="mt-4 space-y-3"></div>
             </div>
           </div>
         </div>
